@@ -1,0 +1,14 @@
+<div *ngIf="book">
+  <div>
+    <mat-card>
+      <h2>{{book.name}}</h2>
+      <mat-card-content *ngFor="let item of book.genres">
+        {{ item }}
+      </mat-card-content>
+      <p>
+        <small>Posted by {{book.author}} &bull; price is {{book.price}}$</small>
+      </p>
+    </mat-card>
+  </div>
+
+</div>
