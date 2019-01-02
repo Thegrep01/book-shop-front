@@ -1,0 +1,13 @@
+section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: auto;
+    grid-gap: 50px;
+    margin: 0 auto;
+    max-width: 60%;
+    margin-top: 60px;
+  }
+mat-card {
+    margin: 10px 0;
+    cursor: pointer; 
+}

@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as BooksActions from '../../../store/actions/books.actions';
 import { Observable } from 'rxjs';
+import { GetBooksList } from '../../../store/actions/books.actions';
 
 @Component({
   selector: 'app-books-list',
@@ -15,11 +16,11 @@ export class BooksListComponent implements OnInit {
   public bookList: Observable<Book[]>;
 
   constructor(private store: Store<AppState>) {
+    this.bookList = this.store.select('bookList');
   }
 
   ngOnInit() {
-    this.bookList = this.store.select('bookList');
-    this.store.dispatch(new BooksActions.GetBooksList());
+    this.store.dispatch(new GetBooksList());
   }
 
 }
