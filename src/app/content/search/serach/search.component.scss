@@ -1,0 +1,24 @@
+section {
+    float: left;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    height: 100%;
+    // // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    // grid-template-rows: auto;
+    // // grid-gap: 50px;
+    margin: 0 auto;
+    // max-width: 60%;
+    // margin-top: 60px;
+  }
+mat-card {
+    margin: 10px 0;
+}
+
+.radio-group {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.radio-button {
+    margin: 5px;
+}

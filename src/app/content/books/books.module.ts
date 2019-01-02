@@ -8,7 +8,6 @@ import { BookInfoComponent } from './book-info/book-info.component';
 const routes: Routes = [
   { path: 'books', component: BooksListComponent },
   { path: 'books/:id', component: BookInfoComponent },
-
 ];
 
 @NgModule({

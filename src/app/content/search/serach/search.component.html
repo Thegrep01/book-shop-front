@@ -1,0 +1,22 @@
+<section>
+
+  <mat-radio-group class="radio-group" [(ngModel)]="selectedCategory">
+    <mat-radio-button class="radio-button" *ngFor="let category of categories" [value]="category">
+      {{category}}
+    </mat-radio-button>
+  </mat-radio-group>
+
+</section>
+
+<div class="search-container" [ngSwitch]="selectedCategory">
+  <h1>SEARCH</h1>
+  <app-search-book *ngSwitchCase="categories[0]"></app-search-book>
+  <p *ngSwitchCase="categories[1]">
+    123
+  </p>
+  <p *ngSwitchCase="categories[2]">
+    qwe
+  </p>
+
+  <p *ngSwitchDefault></p>
+</div>
