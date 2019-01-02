@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { SearcBookService } from './search-book.service';
 
 @Component({
   selector: 'app-search-book',
@@ -12,7 +13,7 @@ export class SearchBookComponent implements OnInit {
   name: string;
   author: string;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private searcBookService: SearcBookService) {
     this.searchForm = fb.group({
       'name': '',
       'author': '',
@@ -25,7 +26,7 @@ export class SearchBookComponent implements OnInit {
       'mystery': '',
       'horror': '',
       'novel': '',
-      'bookbinder': '',
+      'bookbinder': ['hardcover'],
     });
   }
 
@@ -33,55 +34,7 @@ export class SearchBookComponent implements OnInit {
   }
 
   search(value) {
-    let req = '?';
-
-    if (value.name) {
-      req += `name=${value.name}&`;
-    }
-
-    if (value.author) {
-      req += `author=${value.author}&`;
-    }
-
-    if (value.history) {
-      req += `genres=history&`;
-    }
-
-    if (value.Sf) {
-      req += `genres=since fiction&`;
-    }
-
-    if (value.drama) {
-      req += `genres=drama&`;
-    }
-
-    if (value.action) {
-      req += `genres=action&`;
-    }
-
-    if (value.adventure) {
-      req += `genres=adventure&`;
-    }
-
-    if (value.romance) {
-      req += `genres=romance&`;
-    }
-
-    if (value.mystery) {
-      req += `genres=mystery&`;
-    }
-
-    if (value.horror) {
-      req += `genres=horror&`;
-    }
-    if (value.novel) {
-      req += `genres=novel&`;
-    }
-
-    if (value.bookbinder) {
-      req += `bookbider=${value.bookbinder}&`;
-    }
-
+    const req: string = this.searcBookService.genReq(value);
     console.log(req);
   }
 
