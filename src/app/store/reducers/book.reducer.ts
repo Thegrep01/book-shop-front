@@ -2,7 +2,6 @@ import { Book } from './../models/book.model';
 import { Action } from '@ngrx/store';
 import * as BooksActions from '../actions/books.actions';
 
-
 export function booksReducer(state: any = [], action: BooksActions.Action) {
     switch (action.type) {
         case BooksActions.GET_BOOK_LIST:

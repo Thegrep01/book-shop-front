@@ -5,7 +5,7 @@ export const GET_BOOK_LIST = '[BOOK] Get all books';
 export const GET_BOOK_GET_LIST_SUCCESS = '[BOOK] Get all books SUCCESS';
 export const GET_BOOK_LIST_FAIL = '[BOOK] Get all books FAIL';
 
-export const GET_BOOK_BY_ID = '[BOOK] Get all books';
+export const GET_BOOK_BY_ID = '[BOOK] Get book';
 export const GET_BOOK_GET_BY_ID_SUCCESS = '[BOOK] Get book SUCCESS';
 export const GET_BOOK_BY_ID_FAIL = '[BOOK] Get book FAIL';
 
