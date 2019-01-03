@@ -16,6 +16,9 @@ import { BooksEffects } from './store/effects/books.effect';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { searchReducer } from './store/reducers/search.reducer';
+import { ComicsModule } from './content/comics/comics.module';
+import { comicsListReducer, comicsReducer } from './store/reducers/comics.reducer';
+import { ComicsEffects } from './store/effects/comics.effect';
 
 
 @NgModule({
@@ -29,17 +32,20 @@ import { searchReducer } from './store/reducers/search.reducer';
     SharedModule,
     BooksModule,
     StoreModule.forRoot({
-     bookList: booksReducer,
-     book: bookReducer,
-     searchResult: searchReducer,
+      bookList: booksReducer,
+      book: bookReducer,
+      searchResult: searchReducer,
+      comicsList: comicsListReducer,
+      comics: comicsReducer
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 10
     }),
-    EffectsModule.forRoot([BooksEffects, SearchEffects]),
+    EffectsModule.forRoot([BooksEffects, SearchEffects, ComicsEffects]),
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ComicsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

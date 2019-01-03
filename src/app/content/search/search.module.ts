@@ -11,7 +11,7 @@ import { BookInfoComponent } from '../books/book-info/book-info.component';
 const routes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'search-result', component: SearchResultComponent },
-  { path: 'search-result/:id', component: BookInfoComponent },
+  { path: 'search-result/book/:id', component: BookInfoComponent },
 ];
 
 

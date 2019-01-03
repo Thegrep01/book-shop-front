@@ -1,0 +1,10 @@
+<section>
+  <mat-card *ngFor="let comics of comicsList | async">
+    <mat-card-content routerLink="{{comics._id}}">
+      <h2>{{comics.name}}</h2>
+      <p>
+        <small>Written by {{comics.author}} &bull; price is {{comics.price}}$</small>
+      </p>
+    </mat-card-content>
+  </mat-card>
+</section>
