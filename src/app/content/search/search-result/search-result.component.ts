@@ -11,9 +11,17 @@ import { Store } from '@ngrx/store';
 export class SearchResultComponent implements OnInit {
 
   public searchResult: Observable<any[]>;
+  public type: string;
 
   constructor(private store: Store<AppState>) {
     this.searchResult = this.store.select('searchResult');
+    this.searchResult.subscribe(data => {
+      if (data[0] && data[0].painter) {
+        this.type = 'comics';
+      } else {
+        this.type = 'book';
+      }
+    });
   }
 
   ngOnInit() {

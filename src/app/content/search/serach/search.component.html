@@ -11,9 +11,8 @@
 <div class="search-container" [ngSwitch]="selectedCategory">
   <h1>SEARCH</h1>
   <app-search-book *ngSwitchCase="categories[0]"></app-search-book>
-  <p *ngSwitchCase="categories[1]">
-    123
-  </p>
+  
+  <app-search-comics *ngSwitchCase="categories[1]"></app-search-comics>
   <p *ngSwitchCase="categories[2]">
     qwe
   </p>

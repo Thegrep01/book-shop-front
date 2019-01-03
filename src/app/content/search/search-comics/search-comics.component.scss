@@ -1,0 +1,18 @@
+.header {
+    text-align: center;
+}
+
+.section {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 5px;
+    margin: 0 auto;
+  }
+mat-form-field {
+margin-left: 10px;
+  }
+
+.margin {
+    margin: 0 10px;
+}

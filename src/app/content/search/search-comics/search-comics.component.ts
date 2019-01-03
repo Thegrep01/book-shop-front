@@ -1,29 +1,28 @@
+import { SearchComicsService } from './search-comics.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { SearcBookService } from './search-book.service';
 import { Store } from '@ngrx/store';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AppState } from 'src/app/store/app.state';
 import * as SearchActions from '../../../store/actions/search.actions';
-import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-search-book',
-  templateUrl: './search-book.component.html',
-  styleUrls: ['./search-book.component.scss']
+  selector: 'app-search-comics',
+  templateUrl: './search-comics.component.html',
+  styleUrls: ['./search-comics.component.scss']
 })
-export class SearchBookComponent implements OnInit {
+export class SearchComicsComponent implements OnInit {
 
   searchForm: FormGroup;
 
-  searchResult: Observable<any>;
-
   constructor(
-    private fb: FormBuilder, private searcBookService: SearcBookService, private store: Store<AppState>, private router: Router
+    private fb: FormBuilder, private store: Store<AppState>, private router: Router,
+    private searchComicsService: SearchComicsService
   ) {
     this.searchForm = fb.group({
       'name': '',
       'author': '',
+      'painter': '',
       'history': '',
       'Sf': '',
       'drama': '',
@@ -34,6 +33,7 @@ export class SearchBookComponent implements OnInit {
       'horror': '',
       'novel': '',
       'bookbinder': ['hardcover'],
+      'side': ['left-side']
     });
   }
 
@@ -41,8 +41,8 @@ export class SearchBookComponent implements OnInit {
   }
 
   search(value) {
-    const req: string = this.searcBookService.genReq(value);
-    this.store.dispatch(new SearchActions.SearchBookReq(req));
+    const req: string = this.searchComicsService.genReq(value);
+    this.store.dispatch(new SearchActions.SearchComicsReq(req));
     this.router.navigate(['/search-result']);
   }
 

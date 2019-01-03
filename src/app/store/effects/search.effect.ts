@@ -18,8 +18,20 @@ export class SearchEffects {
         map((action: any) => action.payload),
         switchMap((data: any) => {
             return this.http.get(`http://localhost:8090/books/search/${data}`).pipe(
-                map((res: any) => new SearchActions.SearchBookReqSuccess(res.data)),
-                catchError(() => of(new SearchActions.SearchBookReqFail()))
+                map((res: any) => new SearchActions.SearchReqSuccess(res.data)),
+                catchError(() => of(new SearchActions.SearchReqFail()))
+        );
+        }),
+    );
+
+    @Effect()
+    getComics = this.actions.pipe(
+        ofType(SearchActions.SEARCH_COMICS_REQ),
+        map((action: any) => action.payload),
+        switchMap((data: any) => {
+            return this.http.get(`http://localhost:8090/commixes/search/${data}`).pipe(
+                map((res: any) => new SearchActions.SearchReqSuccess(res.data)),
+                catchError(() => of(new SearchActions.SearchReqFail()))
         );
         }),
     );
