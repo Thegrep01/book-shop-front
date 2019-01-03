@@ -1,0 +1,11 @@
+<section>
+    <mat-card *ngFor="let item of searchResult | async">
+      <mat-card-content routerLink="{{item._id}}">
+        <h2>{{item.name}}</h2>
+        <p>
+          <small>Written by {{item.author}} &bull; price is {{item.price}}$</small>
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </section>
+  

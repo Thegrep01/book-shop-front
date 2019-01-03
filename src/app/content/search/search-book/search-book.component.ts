@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SearcBookService } from './search-book.service';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.state';
+import * as SearchActions from '../../../store/actions/search.actions';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-book',
@@ -13,7 +18,11 @@ export class SearchBookComponent implements OnInit {
   name: string;
   author: string;
 
-  constructor(private fb: FormBuilder, private searcBookService: SearcBookService) {
+  searchResult: Observable<any>;
+
+  constructor(
+    private fb: FormBuilder, private searcBookService: SearcBookService, private store: Store<AppState>, private router: Router
+  ) {
     this.searchForm = fb.group({
       'name': '',
       'author': '',
@@ -28,6 +37,8 @@ export class SearchBookComponent implements OnInit {
       'novel': '',
       'bookbinder': ['hardcover'],
     });
+
+    this.searchResult = this.store.select('searchResult');
   }
 
   ngOnInit() {
@@ -35,7 +46,8 @@ export class SearchBookComponent implements OnInit {
 
   search(value) {
     const req: string = this.searcBookService.genReq(value);
-    console.log(req);
+    this.store.dispatch(new SearchActions.SearchBookReq(req));
+    this.router.navigate(['/search-result']);
   }
 
 }

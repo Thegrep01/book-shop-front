@@ -1,3 +1,4 @@
+import { SearchEffects } from './store/effects/search.effect';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,6 +15,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { BooksEffects } from './store/effects/books.effect';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { searchReducer } from './store/reducers/search.reducer';
 
 
 @NgModule({
@@ -28,12 +30,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BooksModule,
     StoreModule.forRoot({
      bookList: booksReducer,
-     book: bookReducer
+     book: bookReducer,
+     searchResult: searchReducer,
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 10
     }),
-    EffectsModule.forRoot([BooksEffects]),
+    EffectsModule.forRoot([BooksEffects, SearchEffects]),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule

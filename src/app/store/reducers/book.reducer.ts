@@ -5,7 +5,7 @@ import * as BooksActions from '../actions/books.actions';
 export function booksReducer(state: any = [], action: BooksActions.Action) {
     switch (action.type) {
         case BooksActions.GET_BOOK_LIST:
-            return [state];
+            return state;
         case BooksActions.GET_BOOK_GET_LIST_SUCCESS:
             return action.payload;
         case BooksActions.GET_BOOK_LIST_FAIL:
