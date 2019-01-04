@@ -1,7 +1,10 @@
 <section *ngIf="searchResult | async">
   <mat-card *ngFor="let item of searchResult | async">
+    <mat-card-header>
+      <mat-card-title>{{item.name}}</mat-card-title>
+    </mat-card-header>
     <mat-card-content routerLink="{{type}}/{{item._id}}">
-      <h2>{{item.name}}</h2>
+      <img mat-card-lg-image src="http://localhost:8090/{{item.url}}" alt="{{item.name}}">
       <p>
         <small>Written by {{item.author}} &bull; price is {{item.price}}$</small>
       </p>

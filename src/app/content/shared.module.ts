@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { MenuModule } from './menu/menu.module';
 import { SearchModule } from './search/search.module';
 import { FormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
     RouterModule,
     MenuModule,
     SearchModule,
-    FormsModule
+    FormsModule,
+    FlexLayoutModule
   ],
   exports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     RouterModule,
     MenuModule,
-    SearchModule
+    SearchModule,
+    FlexLayoutModule
   ],
   declarations: [NavbarComponent]
 })

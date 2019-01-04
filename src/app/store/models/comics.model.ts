@@ -6,4 +6,5 @@ export interface Comics {
     genres: [];
     bookbider: string;
     side: string;
+    url: string;
 }

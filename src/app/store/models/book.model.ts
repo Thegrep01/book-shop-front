@@ -4,4 +4,5 @@ export interface Book {
     price: number;
     genres: string[];
     bookbider: string;
+    url: string;
 }

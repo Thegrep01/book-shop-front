@@ -2,12 +2,13 @@
   <div>
     <mat-card>
       <h2>{{book.name}}</h2>
+      <img mat-card-image src="http://localhost:8090/{{book.url}}"/>
       <mat-card-content *ngFor="let item of book.genres">
         {{ item }}
       </mat-card-content>
-      <p>
+      <mat-card-footer>
         <small>Written by {{book.author}} &bull; price is {{book.price}}$</small>
-      </p>
+      </mat-card-footer>
     </mat-card>
   </div>
 </div>

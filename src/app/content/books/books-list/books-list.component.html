@@ -1,6 +1,7 @@
 <section>
   <mat-card *ngFor="let book of bookList | async">
     <mat-card-content routerLink="{{book._id}}">
+      <img mat-card-lg-image src="http://localhost:8090/{{book.url}}" alt="{{book.name}}">
       <h2>{{book.name}}</h2>
       <p>
         <small>Written by {{book.author}} &bull; price is {{book.price}}$</small>

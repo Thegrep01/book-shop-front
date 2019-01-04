@@ -1,14 +1,12 @@
 <div *ngIf="comics">
   <mat-card>
     <h2>{{comics.name}}</h2>
+    <img mat-card-image src="http://localhost:8090/{{comics.url}}" />
     <mat-card-content *ngFor="let item of comics.genres">
       {{ item }}
     </mat-card-content>
-    <p>
-      <small>Written by {{comics.author}} &bull; painted by {{comics.author}} &bull; price is {{comics.price}}$</small>
-    </p>
-    <p>
-      <small>Bookbinder {{comics.bookbider}} &bull; Side {{comics.side}}</small>
-    </p>
+    <mat-card-footer>
+      <small>Written by {{comics.author}} &bull; price is {{comics.price}}$</small>
+    </mat-card-footer>
   </mat-card>
 </div>
