@@ -5,9 +5,6 @@
       <input matInput placeholder="Name" formControlName="name">
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Date" formControlName="date">
-    </mat-form-field>
-    <mat-form-field>
       <mat-select placeholder="Date" name="date">
         <mat-option *ngFor="let date of searchDate | async">{{date}}</mat-option>
       </mat-select>
