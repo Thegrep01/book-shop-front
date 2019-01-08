@@ -6,6 +6,8 @@ export function searchReducer(state: any = [], action: SearchActions.Action) {
             return state;
         case SearchActions.SEARCH_COMICS_REQ:
             return state;
+        case SearchActions.SEARCH_MAGAZINE_REQ:
+            return state;
         case SearchActions.SEARCH_REQ_SUCCESS:
             return action.payload;
         case SearchActions.SEARCH_REQ_FAIL:

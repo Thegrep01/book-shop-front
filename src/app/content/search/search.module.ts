@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { BookInfoComponent } from '../books/book-info/book-info.component';
 import { SearchComicsComponent } from './search-comics/search-comics.component';
+import { SearchMagazineComponent } from './search-magazine/search-magazine.component';
 
 const routes: Routes = [
   { path: 'search', component: SearchComponent },
@@ -20,7 +21,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [SearchComponent, SearchBookComponent, SearchResultComponent, SearchComicsComponent],
+  declarations: [SearchComponent, SearchBookComponent, SearchResultComponent, SearchComicsComponent, SearchMagazineComponent],
   imports: [
     MaterialModule, RouterModule.forChild(routes), BrowserModule, FormsModule, ReactiveFormsModule
   ]

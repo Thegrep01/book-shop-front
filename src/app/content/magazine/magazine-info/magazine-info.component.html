@@ -1,0 +1,14 @@
+<div *ngIf="magazine">
+  <div>
+    <mat-card>
+      <h2>{{magazine.name}}</h2>
+      <img mat-card-image src="http://localhost:8090/{{magazine.url}}"/>
+      <mat-card-content *ngFor="let item of magazine.category">
+        {{ item }}
+      </mat-card-content>
+      <mat-card-footer>
+        <small>Written by {{magazine.author}} &bull; price is {{magazine.price}}$ </small>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>

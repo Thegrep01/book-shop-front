@@ -1,0 +1,11 @@
+<section>
+  <mat-card *ngFor="let magazine of magazineList | async">
+    <mat-card-content routerLink="{{magazine._id}}">
+      <img mat-card-lg-image src="http://localhost:8090/{{magazine.url}}" alt="{{magazine.name}}">
+      <h2>{{magazine.name}}</h2>
+      <p>
+        <small>Written by {{magazine.author}} &bull; price is {{magazine.price}}$</small>
+      </p>
+    </mat-card-content>
+  </mat-card>
+</section>

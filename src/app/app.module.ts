@@ -19,6 +19,9 @@ import { searchReducer } from './store/reducers/search.reducer';
 import { ComicsModule } from './content/comics/comics.module';
 import { comicsListReducer, comicsReducer } from './store/reducers/comics.reducer';
 import { ComicsEffects } from './store/effects/comics.effect';
+import { magazinesReducer, magazineReducer, magazineDateReducer } from './store/reducers/magazine.reducer';
+import { MagazineEffects } from './store/effects/magazine.effect';
+import { MagazineModule } from './content/magazine/magazine.module';
 
 
 @NgModule({
@@ -36,16 +39,20 @@ import { ComicsEffects } from './store/effects/comics.effect';
       book: bookReducer,
       searchResult: searchReducer,
       comicsList: comicsListReducer,
-      comics: comicsReducer
+      comics: comicsReducer,
+      magazineList: magazinesReducer,
+      magazine: magazineReducer,
+      dates: magazineDateReducer,
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 10
     }),
-    EffectsModule.forRoot([BooksEffects, SearchEffects, ComicsEffects]),
+    EffectsModule.forRoot([BooksEffects, SearchEffects, ComicsEffects, MagazineEffects]),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    ComicsModule
+    ComicsModule,
+    MagazineModule
   ],
   providers: [],
   bootstrap: [AppComponent]
