@@ -5,10 +5,12 @@
       <input matInput placeholder="Name" formControlName="name">
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Author" formControlName="author">
+      <mat-select placeholder="Date" name="date">
+        <mat-option *ngFor="let date of searchDate | async">{{date}}</mat-option>
+      </mat-select>
     </mat-form-field>
 
-    <p>Genres:</p>
+    <p>Categories:</p>
     <section class="section">
       <mat-checkbox class="margin" formControlName="history">History</mat-checkbox>
       <mat-checkbox class="margin" formControlName="Sf">Since Fiction</mat-checkbox>
@@ -21,14 +23,6 @@
       <mat-checkbox class="margin" formControlName="mystery">Mystery</mat-checkbox>
       <mat-checkbox class="margin" formControlName="horror">Horror</mat-checkbox>
       <mat-checkbox class="margin" formControlName="novel">Novel</mat-checkbox>
-    </section>
-
-    <p>Bookbinder:</p>
-    <section class="section">
-      <mat-radio-group formControlName="bookbinder">
-        <mat-radio-button class="radio-button margin" value="hardcover">hardcover</mat-radio-button>
-        <mat-radio-button class="radio-button margin" value="softcover">softcover</mat-radio-button>
-      </mat-radio-group>
     </section>
     <button mat-icon-button color='primary' type="submit">
       <mat-icon>search</mat-icon>

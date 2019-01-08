@@ -36,4 +36,15 @@ export class SearchEffects {
         }),
     );
 
+    @Effect()
+    getMagazines = this.actions.pipe(
+        ofType(SearchActions.SEARCH_MAGAZINE_REQ),
+        map((action: any) => action.payload),
+        switchMap((data: any) => {
+            return this.http.get(`http://localhost:8090/magazine/search/${data}`).pipe(
+                map((res: any) => new SearchActions.SearchReqSuccess(res.data)),
+                catchError(() => of(new SearchActions.SearchReqFail()))
+        );
+        }),
+    );
 }
